@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="auth-wrapper">
+    <div class="auth-box">
+      <h2>Welcome Back</h2>
+      <p class="sub-text">
+        Login to continue managing your reminders.
+      </p>
+
+      <input 
+        type="email" 
+        id="loginEmail" 
+        placeholder="Email Address"
+      >
+
+      <div class="password-field">
+        <input 
+          type="password" 
+          id="loginPassword" 
+          placeholder="Password"
+        >
+        <i class="fa-solid fa-eye toggle" onclick="togglePassword('loginPassword', this)">
+        </i>
+      </div>
+
+      <button type="button" onclick="login()">
+        Login
+      </button>
+
+      <p class="link">
+        Don’t have an account?
+        <a href="./register.html">Create one</a>
+      </p>
+    </div>
+  </div>
+
+  <script src="../js/login.js"></script>
+</body>
+</html>

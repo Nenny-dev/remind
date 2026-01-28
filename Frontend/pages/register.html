@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Create Account|RemindMe</title>
+</head>
+<body>
+    <div class="auth-wrapper">
+    <div class="auth-box">
+      <h2>Create Account</h2>
+      <p class="sub-text">
+        Create an account to start managing your reminders easily.
+      </p>
+
+      <input 
+        type="text" 
+        id="name" 
+        placeholder="Full Name"
+      >
+
+      <input 
+        type="email" 
+        id="email" 
+        placeholder="Email Address"
+      >
+
+      <div class="password-field">
+        <input 
+          type="password" 
+          id="password" 
+          placeholder="password"
+        >
+        <i class="fa-solid fa-eye toggle" onclick="togglePassword('password', this)">
+        </i>
+      </div>
+
+      <button type="button" onclick="register()">
+        Create Account
+      </button>
+
+      <p class="link">
+        Already have an account?
+        <a href="./login.html">Login</a>
+      </p>
+    </div>
+  </div>
+
+  <script src="../js/register.js"></script>
+</body>
+</html>

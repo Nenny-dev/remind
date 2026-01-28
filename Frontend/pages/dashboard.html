@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <title>Dashboard | RemindMe</title>
+</head>
+<body>
+    <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">RemindMe</div>
+    <nav>
+      <span id="userName">Hello, User</span>
+      <button id="logoutBtn">Logout</button>
+    </nav>
+  </header>
+
+  <!-- Main Dashboard -->
+  <main class="dashboard">
+
+    <section class="add-reminder">
+      <h2>Add a Reminder</h2>
+      <input type="text" id="taskInput" placeholder="Enter reminder task">
+      <input type="date" id="dateInput">
+      <input type="time" id="timeInput">
+      <button onclick="addReminder()">Add Reminder</button>
+    </section>
+
+    <section class="reminder-list">
+      <h2>Your Reminders</h2>
+      <ul id="remindersUl">
+        <!-- Reminders will appear here -->
+      </ul>
+    </section>
+
+  </main>
+
+  <script src="../js/dashboard.js"></script>
+</body>
+</html>
+</body>
+</html>

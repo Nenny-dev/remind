@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+body {
+  background: #f4f6f8;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 60px;
+  background: #4f46e5;
+  color: white;
+}
+
+.navbar .logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.navbar nav span {
+  margin-right: 20px;
+}
+
+.navbar nav button {
+  padding: 8px 15px;
+  background: #ffffff;
+  color: #4f46e5;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.navbar nav button:hover {
+  background: #e0e0ff;
+}
+
+.dashboard {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.add-reminder {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
+
+.add-reminder input, .add-reminder button {
+  padding: 10px;
+  margin: 8px 0;
+}
+
+.add-reminder input {
+  width: calc(33% - 12px);
+  margin-right: 10px;
+}
+
+.add-reminder button {
+  background: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.add-reminder button:hover {
+  background: #4338ca;
+}
+
+.reminder-list {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.reminder-list ul {
+  list-style: none;
+}
+
+.reminder-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.reminder-list li:last-child {
+  border-bottom: none;
+}
+
+.reminder-list li button {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.reminder-list li button:hover {
+  background: #cc0000;
+}
