@@ -16,7 +16,7 @@ function register() {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  fetch("http://localhost:5000/api/auth/register", {
+  fetch("https://remind-production-c066.up.railway.app/auth/register", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"

@@ -34,7 +34,7 @@ function login() {
     return;
   }
 
-  fetch("http://localhost:5000/api/auth/login", {
+  fetch("https://remind-production-c066.up.railway.app/auth/login", {
   method: "POST",
   headers: {
     "Content-Type": "application/json"

@@ -13,12 +13,14 @@ const sendEmailReminder = require("./utils/sendemail"); // your email function
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: "https://remind-me-task.netlify.app"
+}));
 app.use(express.json());
 
 // use routes
-app.use("/api/auth", authRoutes);
-app.use("/api/reminders", reminderRoutes);
+app.use("/auth", authRoutes);
+app.use("/reminders", reminderRoutes);
 
 app.get("/", (req, res) => {
   res.send("Backend running successfully");

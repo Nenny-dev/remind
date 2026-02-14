@@ -31,7 +31,7 @@ logoutBtn.addEventListener("click", () => {
 // -------------------- LOAD REMINDERS --------------------
 async function loadReminders() {
   try {
-    const res = await fetch(`http://localhost:5000/api/reminders/${encodeURIComponent(userEmail)}`);
+    const res = await fetch(`https://remind-production-c066.up.railway.app/reminders/${encodeURIComponent(userEmail)}`);
 
     if (!res.ok) {
       throw new Error(`HTTP error! status: ${res.status}`);
@@ -73,7 +73,7 @@ addBtn.addEventListener("click", async (e) => {
     return;
   }
 
-  const res = await fetch("http://localhost:5000/api/reminders/add", {
+  const res = await fetch("https://remind-production-c066.up.railway.app/reminders/add", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ userEmail, username, task, date, time })
@@ -98,7 +98,7 @@ addBtn.addEventListener("click", async (e) => {
 // -------------------- DELETE REMINDER --------------------
 async function deleteReminder(id) {
 try {
-  await fetch(`http://localhost:5000/api/reminders/${id}`, {
+  await fetch(`https://remind-production-c066.up.railway.app/reminders/${id}`, {
     method: "DELETE"
   });
 
