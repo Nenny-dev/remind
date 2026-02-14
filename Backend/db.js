@@ -2,21 +2,23 @@ const { MongoClient } = require("mongodb");
 
 let db;
 
-async function connectDB() {
+const connectDB = async () => {
   try {
-    const uri = process.env.MONGO_URI;
-    const client = new MongoClient(uri);
+    const client = new MongoClient(process.env.MONGO_URI);
     await client.connect();
-
-    db = client.db("remindme");
-    console.log("MongoDB Atlas connected");
+    db = client.db(); // use default DB from URI
+    console.log("MongoDB connected");
   } catch (error) {
-    console.error("MongoDB connection failed:", error.message);
+    console.error("MongoDB connection failed:", error);
+    process.exit(1);
   }
-}
+};
 
-function getDB() {
+const getDB = () => {
+  if (!db) {
+    throw new Error("Database not initialized");
+  }
   return db;
-}
+};
 
 module.exports = { connectDB, getDB };

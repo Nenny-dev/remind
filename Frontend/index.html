@@ -3,82 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/index.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="../Frontend/style/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link rel="icon" type="image/svg+xml" href="../Frontend/assets/favicon.svg">
+    <title>RemindeMe</title>
 </head>
 <body>
-     <!-- Navigation Bar -->
-  <header class="navbar">
-    <div class="logo">RemindMe</div>
-    <nav>
-      <a href="#features">Features</a>
-      <a href="#about">About</a>
-      <a href="login.html">Login</a>
-      <a href="register.html" class="btn">Get Started</a>
-    </nav>
+  <header class="main-nav">
+    <div class="nav-container">
+        <div class="logo"><i class="fa-solid fa-bolt-lightning"></i>Remind<span>Me</span></div>
+        <nav class="desktop-links">
+            <a href="#features">Features</a>
+            <a href="#about">About</a>
+            <div class="auth-group">
+                <a href="./pages/login.html" class="link-login">Login</a>
+                <a href="./pages/register.html" class="btn-cta">Get Started</a>
+            </div>
+        </nav>
+    </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Organize Your Day, One Reminder at a Time</h1>
-      <p>
-        RemindMe is a simple and reliable reminder web application that helps
-        you keep track of your daily tasks, appointments, and important events
-        so you never forget what matters most.
-      </p>
-      <a href="register.html" class="btn large">Create Free Account</a>
+  <section class="hero-section">
+    <div class="hero-grid">
+        <div class="hero-text">
+            <div class="status-pill">Now with Cloud Sync</div>
+            <h1>Master your schedule, <span>don't let it master you.</span></h1>
+            <p>RemindMe streamlines your daily workflow by organizing tasks into a high-visibility dashboard. Designed for clarity, built for speed.</p>
+            <div class="action-row">
+                <a href="./pages/register.html" class="btn-primary">Build My Timeline</a>
+                <a href="#features" class="btn-ghost">See How It Works</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="ui-mockup">
+                <div class="mock-line"></div>
+                <div class="mock-line short"></div>
+                <div class="mock-card">Reminder Added!</div>
+            </div>
+        </div>
     </div>
   </section>
 
-  <!-- Features Section -->
-  <section id="features" class="features">
-    <h2>Why Choose RemindMe?</h2>
-
-    <div class="feature-grid">
-      <div class="feature-card">
-        <h3>Simple & Easy</h3>
-        <p>
-          RemindMe is designed with simplicity in mind. You can create reminders
-          in just a few seconds without any complications.
-        </p>
-      </div>
-
-      <div class="feature-card">
-        <h3>Stay Organized</h3>
-        <p>
-          Keep all your reminders in one place and manage your daily activities
-          more efficiently.
-        </p>
-      </div>
-
-      <div class="feature-card">
-        <h3>Reliable Access</h3>
-        <p>
-          Access your reminders anytime by logging into your account from any
-          device with an internet connection.
-        </p>
-      </div>
+  <section id="features" class="features-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Why our interface works</h2>
+        </div>
+        <div class="grid-3">
+            <div class="card">
+                <i class="fa-solid fa-bolt"></i>
+                <h3>Low Latency</h3>
+                <p>Designed for instant task entry and retrieval to minimize cognitive load.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-mobile-screen"></i>
+                <h3>Responsive Grid</h3>
+                <p>A fluid layout that adapts to your workflow, whether on Desktop or Mobile.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-shield-halved"></i>
+                <h3>Data Persistence</h3>
+                <p>Securely stored tasks ensuring your schedule is always where you left it.</p>
+            </div>
+        </div>
     </div>
   </section>
-
-  <!-- About Section -->
-  <section id="about" class="about">
-    <h2>About RemindMe</h2>
-    <p>
-      RemindMe was developed as a web-based reminder system to help users manage
-      their personal tasks and schedules effectively. The system uses modern
-      web technologies to provide a clean interface and smooth user experience.
-    </p>
-    <p>
-      This project demonstrates the use of frontend technologies such as HTML,
-      CSS, and JavaScript to build an interactive and user-friendly application.
-    </p>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <p>© 2026 RemindMe. All rights reserved.</p>
+     
+  <footer class="clean-footer">
+    <p>&copy; 2026 RemindMe Application &bull; Optimized for Performance</p>
   </footer>
+  <!-- Footer -->
+  <!-- <footer class="footer">
+    <p>© 2026 RemindMe. All rights reserved.</p>
+  </footer> -->
 </body>
 </html>

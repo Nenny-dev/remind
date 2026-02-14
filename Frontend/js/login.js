@@ -1,79 +1,61 @@
+// Toggle password visibility
 function togglePassword(inputId, icon) {
-  const input = document.getElementById(inputId);
+  const password = document.getElementById(inputId);
 
-  if (!input) return;
-
-  if (input.type === "password") {
-    input.type = "text";
-    icon.classList.remove("fa-eye");
-    icon.classList.add("fa-eye-slash");
-  } else {
-    input.type = "password";
-    icon.classList.remove("fa-eye-slash");
-    icon.classList.add("fa-eye");
-  }
-}
-
-// function register() {
-//   const name = document.getElementById("name").value.trim();
-//   const email = document.getElementById("email").value.trim();
-//   const password = document.getElementById("password").value.trim();
-
-//   if (name === "" || email === "" || password === "") {
-//     alert("Please fill in all fields");
-//     return;
-//   }
-
-//   // Temporary storage (backend will replace this)
-//   const user = {
-//     name: name,
-//     email: email,
-//     password: password
-//   };
-
-//   localStorage.setItem("user", JSON.stringify(user));
-
-//   alert("Account created successfully!");
-//   window.location.href = "../js/login.js";
-// }
-
-async function login() {
-  const email = document.getElementById("loginEmail").value.trim();
-  const password = document.getElementById("loginPassword").value.trim();
-
-  if (!email || !password) {
-    alert("Please fill in all fields");
+  if (!password) {
+    console.error("Password input not found:", inputId);
     return;
   }
 
-  const res = await fetch("http://localhost:5000/api/auth/login", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email, password })
-  });
-
-  const data = await res.json();
-
-  if (res.status === 200) {
-    sessionStorage.setItem("userId", data.userId);
-    sessionStorage.setItem("userName", data.name);
-    window.location.href = "../pages/dashboard.html";
+  if (password.type === "password") {
+    password.type = "text";
+    icon.classList.replace("fa-eye", "fa-eye-slash");
   } else {
-    alert(data.message);
+    password.type = "password";
+    icon.classList.replace("fa-eye-slash", "fa-eye");
   }
 }
 
-//   const savedUser = JSON.parse(localStorage.getItem("user"));
+function login() {
+  const emailInput = document.getElementById("loginEmail");
+  const passwordInput = document.getElementById("loginPassword");
 
-//   if (!savedUser) {
-//     alert("No account found. Please register.");
-//     return;
-//   }
+  if (!emailInput || !passwordInput) {
+    alert("Login inputs not found in HTML");
+    console.error("Missing inputs:", emailInput, passwordInput);
+    return;
+  }
 
-//   if (email === savedUser.email && password === savedUser.password) {
-//     alert("Login successful!");
-//     window.location.href = "../js/dashboard.js";
-//   } else {
-//     alert("Incorrect email or password");
-//   }
-// }
+  const email = emailInput.value.trim();
+  const password = passwordInput.value.trim();
+
+  if (!email || !password) {
+    alert("Please fill all fields");
+    return;
+  }
+
+  fetch("http://localhost:5000/api/auth/login", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({ email, password })
+})
+    .then(res => res.json())
+    .then(data => {
+      console.log("Login response:", data);
+      
+      if (data.message === "Login successful") {
+        localStorage.setItem("userEmail", data.email);
+        localStorage.setItem("username", data.username); // must come from backend
+    
+        window.location.href = "../pages/dashboard.html";
+      } else {
+        alert(data.message);
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      alert("Server error");
+    });
+}

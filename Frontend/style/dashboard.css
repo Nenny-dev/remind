@@ -1,113 +1,242 @@
+:root {
+  --primary: #6366f1;
+  --primary-hover: #4f46e5;
+  --bg: #f3f4f6;
+  --white: #ffffff;
+  --text-dark: #1f2937;
+  --text-light: #6b7280;
+  --danger: #ef4444;
+  --radius: 12px;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 body {
-  background: #f4f6f8;
+  background-color: var(--bg);
+  color: var(--text-dark);
 }
 
+/* --- Navbar --- */
 .navbar {
   display: flex;
   justify-content: space-between;
-  padding: 20px 60px;
-  background: #4f46e5;
+  align-items: center;
+  padding: 1rem 5%;
+  background: var(--white);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: -0.5px;
+}
+
+#username {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-light);
+  margin-right: 1.5rem;
+}
+
+.logout-pill {
+  background: #fee2e2;
+  color: var(--danger);
+  padding: 8px 18px;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.logout-pill:hover {
+  background: var(--danger);
   color: white;
 }
 
-.navbar .logo {
-  font-size: 22px;
-  font-weight: bold;
+/* --- Layout --- */
+.dashboard-wrapper {
+  padding: 40px 20px;
+  /* Use viewport height to ensure the dashboard feels like a full app */
+  min-height: calc(100vh - 80px); 
+  display: flex;
+  flex-direction: column;
 }
 
-.navbar nav span {
-  margin-right: 20px;
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  /* Gives the list more room while keeping inputs compact */
+  grid-template-columns: 380px 1fr; 
+  gap: 30px;
+  flex: 1; /* Allows the container to grow with the screen */
+  align-items: start;
 }
 
-.navbar nav button {
-  padding: 8px 15px;
-  background: #ffffff;
-  color: #4f46e5;
+/* --- Input Card --- */
+.action-card {
+  background: var(--white);
+  padding: 30px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  height: fit-content;
+}
+
+.card-header h2 {
+  font-size: 1.25rem;
+  margin-bottom: 5px;
+}
+
+.card-header p {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-bottom: 25px;
+}
+
+.input-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+input {
+  padding: 12px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+.main-btn {
+  background: var(--primary);
+  color: white;
+  padding: 14px;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
+  font-weight: 600;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   cursor: pointer;
   transition: 0.3s;
 }
 
-.navbar nav button:hover {
-  background: #e0e0ff;
+.main-btn:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
 }
 
-.dashboard {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 0 20px;
+/* --- List Card --- */
+.list-card {
+  background: var(--white);
+  padding: 30px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  align-self: stretch; 
+  display: flex;
+  flex-direction: column;
 }
-
-.add-reminder {
-  background: white;
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  margin-bottom: 30px;
-}
-
-.add-reminder input, .add-reminder button {
-  padding: 10px;
-  margin: 8px 0;
-}
-
-.add-reminder input {
-  width: calc(33% - 12px);
-  margin-right: 10px;
-}
-
-.add-reminder button {
-  background: #4f46e5;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.add-reminder button:hover {
-  background: #4338ca;
-}
-
-.reminder-list {
-  background: white;
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
-
-.reminder-list ul {
-  list-style: none;
-}
-
-.reminder-list li {
+.list-header {
   display: flex;
   justify-content: space-between;
-  padding: 10px 0;
-  border-bottom: 1px solid #e0e0e0;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f3f4f6;
 }
 
-.reminder-list li:last-child {
-  border-bottom: none;
+.status-indicator {
+  font-size: 0.75rem;
+  background: #dcfce7;
+  color: #166534;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-weight: 700;
 }
 
-.reminder-list li button {
-  background: #ff4d4d;
-  color: white;
+.modern-list {
+  flex: 1;
+  max-height: 600px; /* Prevents card from becoming infinitely long */
+  overflow-y: auto; /* Adds a clean scrollbar inside the card */
+  padding-right: 5px;
+  :-webkit-scrollbar {
+    width: 6px;
+}}
+/* --- List Items (styling for injected content) --- */
+.modern-list li {
+  list-style: none;
+  padding: 16px 20px;
+  border-radius: 12px;
+  background: #ffffff;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #eef2f6;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modern-list li:hover {
+  transform: translateX(5px);
+  border-color: var(--primary);
+  background: #fcfcff;
+}
+
+.modern-list li button {
+  background: #fff1f2;
+  color: var(--danger);
   border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.2s;
 }
 
-.reminder-list li button:hover {
-  background: #cc0000;
+.modern-list li button:hover {
+  background: var(--danger);
+  color: white;
 }

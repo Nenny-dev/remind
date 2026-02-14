@@ -5,36 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
     <title>Dashboard | RemindMe</title>
 </head>
 <body>
     <!-- Navbar -->
-  <header class="navbar">
-    <div class="logo">RemindMe</div>
-    <nav>
-      <span id="userName">Hello, User</span>
-      <button id="logoutBtn">Logout</button>
-    </nav>
+    <header class="navbar">
+      <div class="logo"><i class="fa-solid fa-bolt-lightning"></i> RemindMe</div>
+      <nav class="nav-links">
+          <span id="username"><i class="fa-regular fa-circle-user"></i> Hello, User</span>
+          <button id="logoutBtn" class="logout-pill">Logout</button>
+      </nav>
   </header>
 
-  <!-- Main Dashboard -->
-  <main class="dashboard">
+  <main class="dashboard-wrapper">
+      <div class="container">
+          
+          <section class="action-card">
+              <div class="card-header">
+                  <h2><i class="fa-solid fa-plus-circle"></i> Create Reminder</h2>
+                  <p>Set a new task and we'll keep you posted.</p>
+              </div>
 
-    <section class="add-reminder">
-      <h2>Add a Reminder</h2>
-      <input type="text" id="taskInput" placeholder="Enter reminder task">
-      <input type="date" id="dateInput">
-      <input type="time" id="timeInput">
-      <button onclick="addReminder()">Add Reminder</button>
-    </section>
+              <div class="input-stack">
+                  <div class="field">
+                      <label>Task Title</label>
+                      <input type="text" id="taskInput" placeholder="e.g., Submit Project Report" required />
+                  </div>
+                  
+                  <div class="field-row">
+                      <div class="field">
+                          <label>Date</label>
+                          <input type="date" id="dateInput" required />
+                      </div>
+                      <div class="field">
+                          <label>Time</label>
+                          <input type="time" id="timeInput" required />
+                      </div>
+                  </div>
 
-    <section class="reminder-list">
-      <h2>Your Reminders</h2>
-      <ul id="remindersUl">
-        <!-- Reminders will appear here -->
-      </ul>
-    </section>
+                  <button id="addBtn" type="button" class="main-btn">
+                      <span>Add to Schedule</span>
+                      <i class="fa-solid fa-arrow-right"></i>
+                  </button>
+              </div>
+          </section>
 
+          <section class="list-card">
+              <div class="list-header">
+                  <h3>Your Timeline</h3>
+                  <div class="status-indicator">Active</div>
+              </div>
+              
+              <ul id="remindersUl" class="modern-list">
+                  </ul>
+          </section>
+
+      </div>
   </main>
 
   <script src="../js/dashboard.js"></script>
